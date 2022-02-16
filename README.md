@@ -19,3 +19,5 @@ This software is based on [ORB-SLAM2](https://github.com/raulmur/ORB_SLAM2) deve
 
 <a href="https://youtu.be/HyLNq-98LRo" target="_blank"><img src="https://img.youtube.com/vi/HyLNq-98LRo/0.jpg"
 alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
+
+## Intructions to Install (solved compile and dependencies problems)
