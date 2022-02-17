@@ -80,8 +80,52 @@ alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
     cmake ..
     make
     sudo make install
-
 ```
+
+### Pangolin :
+```shell script
+    cd ~/Dev
+    git clone https://github.com/stevenlovegrove/Pangolin.git
+    cd Pangolin 
+    mkdir build 
+    cd build 
+    cmake .. -D CMAKE_BUILD_TYPE=Release 
+    make -j 3 
+    sudo make install
+```
+
+### ORB_SLAM3 :
+```shell script
+    git clone https://github.com/maxidu139/ORB_SLAM3_CVRE ORB_SLAM3
+    cd ORB_SLAM3
+    ./build.sh
+```
+
+### ROS (optional) :
+```shell script
+    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+    sudo apt install curl # if you haven't already installed curl
+    curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+    sudo apt update
+    sudo apt install ros-noetic-desktop-full
+    source /opt/ros/noetic/setup.bash
+    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+    source ~/.bashrc
+    sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+    sudo apt install python3-rosdep
+    sudo rosdep init
+    rosdep update
+    export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/userName/Dev/ORB_SLAM3/Examples_old/ROS
+    sudo apt install python-is-python3
+    cd ThirdPart/Sophus
+    mkdir build && cd build
+    cmake ..
+    make
+    sudo make install
+    cd ../../
+    ./build_ros.sh
+```
+
 
 
 
