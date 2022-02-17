@@ -20,4 +20,75 @@ This software is based on [ORB-SLAM2](https://github.com/raulmur/ORB_SLAM2) deve
 <a href="https://youtu.be/HyLNq-98LRo" target="_blank"><img src="https://img.youtube.com/vi/HyLNq-98LRo/0.jpg"
 alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
 
-## Intructions to Install (solved compile and dependencies problems)
+# Intructions to Install (solved compile and dependencies problems)
+
+## Libraries and Dependencies (*please follow instructions step by step.*)
+
+### Git :
+```shell script
+    sudo apt install git
+```
+
+### C++ :
+```shell script
+    sudo apt install g++
+    sudo apt install build-essential
+```
+
+### Libraries :
+```shell script
+    sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+    sudo apt update
+    sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+    sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev libjasper-dev
+    sudo apt-get install libglew-dev libboost-all-dev libssl-dev
+    sudo apt install libeigen3-dev
+```
+
+### OpenCV :
+```shell script
+    cd ~
+    mkdir Dev && cd Dev
+    git clone https://github.com/opencv/opencv.git
+    cd opencv
+    git checkout 4.4.0
+```
+
+#### Add the next lines in the file : modules/videoio/src/cap_ffmpeg_impl.hpp 
+
+  #define AV_CODEC_FLAG_GLOBAL_HEADER (1 << 22)
+
+  #define CODEC_FLAG_GLOBAL_HEADER AV_CODEC_FLAG_GLOBAL_HEADER
+
+  #define AVFMT_RAWPICTURE 0x0020
+
+```shell script
+    mkdir build
+    cd build
+    cmake -D CMAKE_BUILD_TYPE=Release -D WITH_CUDA=OFF -D CMAKE_INSTALL_PREFIX=/usr/local ..
+    make -j 3
+    sudo make install
+```
+
+### Eigen 3.2.10 :
+
+#### Descargar .tar.bz2 de : https://eigen.tuxfamily.org/index.php?title=Main_Page
+```shell script
+    tar -xvf eigen3.2.10.tar.bz2
+    cd eigen3.2.10
+    mkdir build && cd build
+    cmake ..
+    make
+    sudo make install
+
+```
+
+
+
+
+
+
+
+
+
+
