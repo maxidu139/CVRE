@@ -12,7 +12,6 @@ Examples Monocular/Monocular-Inertial is available
 The [Changelog](https://github.com/UZ-SLAMLab/ORB_SLAM3/blob/master/Changelog.md) describes the features of each version.
 
 ORB-SLAM3 is the first real-time SLAM library able to perform **Visual, Visual-Inertial and Multi-Map SLAM** with **monocular, stereo and RGB-D** cameras, using **pin-hole and fisheye** lens models. In all sensor configurations, ORB-SLAM3 is as robust as the best systems available in the literature, and significantly more accurate.
-
 We provide examples to run ORB-SLAM3 in the [EuRoC dataset](http://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets) using stereo or monocular, with or without IMU, and in the [TUM-VI dataset](https://vision.in.tum.de/data/datasets/visual-inertial-dataset) using fisheye stereo or monocular, with or without IMU. Videos of some example executions can be found at [ORB-SLAM3 channel](https://www.youtube.com/channel/UCXVt-kXG6T95Z4tVaYlU80Q).
 
 This software is based on [ORB-SLAM2](https://github.com/raulmur/ORB_SLAM2) developed by [Raul Mur-Artal](http://webdiis.unizar.es/~raulmur/), [Juan D. Tardos](http://webdiis.unizar.es/~jdtardos/), [J. M. M. Montiel](http://webdiis.unizar.es/~josemari/) and [Dorian Galvez-Lopez](http://doriangalvez.com/) ([DBoW2](https://github.com/dorian3d/DBoW2)).
@@ -20,9 +19,9 @@ This software is based on [ORB-SLAM2](https://github.com/raulmur/ORB_SLAM2) deve
 <a href="https://youtu.be/HyLNq-98LRo" target="_blank"><img src="https://img.youtube.com/vi/HyLNq-98LRo/0.jpg"
 alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
 
-# Intructions to Install (solved compile and dependencies problems)
+# Instructions to Install (solved compile and dependencies problems)
 
-## Libraries and Dependencies (*please follow instructions step by step.*)
+## Install Libraries and Dependencies (*please follow instructions step by step.*)
 
 ### Git :
 ```shell script
@@ -54,7 +53,7 @@ alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
     git checkout 4.4.0
 ```
 
-#### Add the next lines in the file : modules/videoio/src/cap_ffmpeg_impl.hpp 
+#### Add the next lines to the file : modules/videoio/src/cap_ffmpeg_impl.hpp 
 
   #define AV_CODEC_FLAG_GLOBAL_HEADER (1 << 22)
 
@@ -72,7 +71,7 @@ alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
 
 ### Eigen 3.2.10 :
 
-#### Descargar .tar.bz2 de : https://eigen.tuxfamily.org/index.php?title=Main_Page
+#### Download .tar.bz2 from : https://eigen.tuxfamily.org/index.php?title=Main_Page
 ```shell script
     tar -xvf eigen3.2.10.tar.bz2
     cd eigen3.2.10
@@ -134,15 +133,19 @@ alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
 
 1. Download a sequence from https://vision.in.tum.de/data/datasets/visual-inertial-dataset and uncompress it.
 
-*Change pathToDataset to directory when you uncompress sequence.*
-
 Execute the next command in ORB_SLAM3 folder :
+
+*Change pathToDataset to directory when you uncompress sequence.*
 ```shell script
 ./Examples/Monocular-Inertial/mono_inertial_tum_vi Vocabulary/ORBvoc.txt Examples/Monocular-Inertial/TUM_512.yaml pathToDataset/dataset-corridor1_512_16/mav0/cam0/data Examples/Monocular-Inertial/TUM_TimeStamps/dataset-corridor1_512.txt Examples/Monocular-Inertial/TUM_IMU/dataset-corridor1_512.txt dataset-corridor1_512_monoi
 ```
 
 #### *Notes :
-    To save the generated map, uncomment line 
+
+    -To save the generated map, uncomment line 7 (#System.SaveAtlasToFile: "corredor") in the file Examples/Monocular-Inertial/TUM_512.yaml. and press stop button in the viewer window.
+    
+    -To load map uncomment line 4 (#System.LoadAtlasFromFile: "corredor") in the file Examples/Monocular-Inertial/TUM_512.yaml.
+    *Precondition : first execute save.
 
 
 
