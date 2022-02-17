@@ -127,6 +127,26 @@ alt="ORB-SLAM3" width="240" height="180" border="10" /></a>
 ```
 
 
+# Run example :
+
+### TUM-VI Examples
+[TUM-VI dataset](https://vision.in.tum.de/data/datasets/visual-inertial-dataset) was recorded with two fisheye cameras and an inertial sensor.
+
+1. Download a sequence from https://vision.in.tum.de/data/datasets/visual-inertial-dataset and uncompress it.
+
+*Change pathToDataset to directory when you uncompress sequence.*
+
+Execute the next command in ORB_SLAM3 folder :
+```shell script
+./Examples/Monocular-Inertial/mono_inertial_tum_vi Vocabulary/ORBvoc.txt Examples/Monocular-Inertial/TUM_512.yaml pathToDataset/dataset-corridor1_512_16/mav0/cam0/data Examples/Monocular-Inertial/TUM_TimeStamps/dataset-corridor1_512.txt Examples/Monocular-Inertial/TUM_IMU/dataset-corridor1_512.txt dataset-corridor1_512_monoi
+```
+
+
+
+
+
+
+
 
 
 
